@@ -1,7 +1,22 @@
+body{
+  background: #83a4d4;
+background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);
+background: linear-gradient(to right, #b6fbff, #83a4d4);
+
+}
+
 canvas {
-  border: 5px solid rgb(86, 172, 233);
+  border: 5px solid #83a4d4;
+  background-color: rgb(28, 39, 46);
+}
+
+.container{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
