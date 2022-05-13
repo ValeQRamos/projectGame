@@ -39,3 +39,4 @@ let enemyWalk = [
   '/images/enemy/walk/8.png',
   '/images/enemy/walk/9.png',
 ]
+

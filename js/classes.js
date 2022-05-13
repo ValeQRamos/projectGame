@@ -74,10 +74,10 @@ class Heroe {
   }
   collision(item){
     return (
-      this.x < item.x + item.width &&
-      this.x + this.width > item.x &&
-      this.y < item.y + item.height &&
-      this.y + this.height > item.y
+      this.x < item.x + item.w &&
+      this.x + this.w > item.x &&
+      this.y < item.y + item.h &&
+      this.y + this.h > item.y
     )
   }
 }
@@ -135,7 +135,15 @@ class Enemy {
     }
     this.x -= this.velocity
     ctx.drawImage(this.imageOfficial,this.x,this.y,this.w,this.h)
-}
+    }
+    collision(item){
+      return (
+        this.x < item.x + item.w &&
+        this.x + this.w > item.x &&
+        this.y < item.y + item.h &&
+        this.y + this.h > item.y
+      )
+    }
 }
 
 class Arrow{
@@ -153,26 +161,12 @@ class Arrow{
     this.x += this.velocity
     ctx.drawImage(this.image,this.x,this.y,this.w,this.h)
   }
-}
-
-/* class Character {
-  constructor(width, height, health, img){
-    this.width = width
-    this.height = height
-    this.health = health
-    this.image = new Image()
-    this.image.src = img
-  }
   collision(item){
     return (
-      mouseX < item.x + item.width &&
-      mouseX + this.width > item.x &&
-      mouseY < item.y + item.height &&
-      mouseY + this.height > item.y
+      this.x < item.x + item.w &&
+      this.x + this.w > item.x &&
+      this.y < item.y + item.h &&
+      this.y + this.h > item.y
     )
   }
-  draw(x,y){
-    ctx.drawImage(this.image,x,y, this.width, this.height)
-  }
 }
- */

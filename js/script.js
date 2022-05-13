@@ -3,8 +3,8 @@ window.onload = () => {
   const bg = new Background('images/backgrounds/background.png')
   const snowBlur1 = new BgSnow('images/backgrounds/snowBlur3.png',0.4)
   const snowBlur2 = new BgSnow('/images/backgrounds/snowBlur11.png',0.2)
-  const heroe = new Heroe(idle,10,200,300,300)
-  // const enemy = new Enemy(enemyWalk,canvas.height,150,400,400,0.07)
+  const heroe = new Heroe(idle,-20,170,300,300)
+  const enemy = new Enemy(enemyWalk,canvas.height,130,400,400,0.07)
   
 
 
@@ -24,29 +24,51 @@ window.onload = () => {
     requestId = requestAnimationFrame(updateGame)
   }
   
-  function gameOver(){}
+  function gameOver(){
 
-  function winGame(){}
+    requestId = undefined
+  }
+
+  function winGame(){} //-----------------------
 
   function updateGame(){
     frames++
     ctx.clearRect(0,0,canvas.width,canvas.height)
+
     bg.draw()
     snowBlur1.draw()
     snowBlur2.draw()
     heroe.draw()
-    // enemy.draw()
+    enemy.draw()
 
-    arrows.forEach(arrow => { arrow.draw() })
+    drawEnemies()
+    generateArrows()
 
     if(requestId){requestAnimationFrame(updateGame)}
   }
 
-  function generateEnemies(){}
+  function generateEnemies(){} //---------------
 
-  function generateArrows(){}
+  function generateArrows(){
+    arrows.forEach((arrow,indexOfArrow) => {
 
-  function drawEnemies(){}
+      arrow.draw()
+
+      if(enemy.collision(arrow)){
+        console.log('hit');
+      }
+    })
+
+  }
+
+  function drawEnemies(){
+    enemy.draw()
+    if(enemy.x <= 100){
+      gameOver()
+    }
+  }
+
+  function stats(){} //----------------
 
   addEventListener('keydown',event => {
     event.preventDefault()
@@ -56,8 +78,7 @@ window.onload = () => {
 
   addEventListener('click', () => {
     clicks++
-   arrows.push(new Arrow(100,310,13))
-   console.log(clicks);
+   arrows.push(new Arrow(80,280,13))
   })
 
 };
