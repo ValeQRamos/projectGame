@@ -82,7 +82,78 @@ class Heroe {
   }
 }
 
+class Enemy {
+  constructor(arrImg,x,y,w,h,velocity){
+    this.arrImg = arrImg
+    this.x = x
+    this.y = y
+    this.w = w
+    this.h = h
+    this.velocity = velocity
 
+    this.image1 = new Image()
+    this.image1.src = arrImg[0]
+    this.image2 = new Image()
+    this.image2.src = arrImg[1]
+    this.image3 = new Image()
+    this.image3.src = arrImg[2]
+    this.image4 = new Image()
+    this.image4.src = arrImg[3]
+    this.image5 = new Image()
+    this.image5.src = arrImg[4]
+    this.image6 = new Image()
+    this.image6.src = arrImg[5]
+    this.image7 = new Image()
+    this.image7.src = arrImg[6]
+    this.image8 = new Image()
+    this.image8.src = arrImg[7]
+    this.image9 = new Image()
+    this.image9.src = arrImg[8]
+    this.imageOfficial = this.image1
+  }
+  draw(){
+    if(frames % 10 === 0){
+      if(this.imageOfficial === this.image1){
+        this.imageOfficial = this.image2
+      } else if (this.imageOfficial === this.image2){
+        this.imageOfficial = this.image3
+      } else if (this.imageOfficial === this.image3){
+        this.imageOfficial = this.image4
+      } else if (this.imageOfficial === this.image4){
+        this.imageOfficial = this.image5
+      }else if (this.imageOfficial === this.image5){
+        this.imageOfficial = this.image6
+      }else if (this.imageOfficial === this.image6){
+        this.imageOfficial = this.image7
+      }else if (this.imageOfficial === this.image7){
+        this.imageOfficial = this.image8
+      }else if (this.imageOfficial === this.image8){
+        this.imageOfficial = this.image9
+      } else {
+        this.imageOfficial = this.image1
+      }
+    }
+    this.x -= this.velocity
+    ctx.drawImage(this.imageOfficial,this.x,this.y,this.w,this.h)
+}
+}
+
+class Arrow{
+  constructor(x,y,velocity){
+    this.x = x
+    this.y = y
+    this.w = 80
+    this.h = 15
+    this.velocity = velocity
+
+    this.image = new Image()
+    this.image.src = '/images/heroe/arrow/Move.png'
+  }
+  draw(){
+    this.x += this.velocity
+    ctx.drawImage(this.image,this.x,this.y,this.w,this.h)
+  }
+}
 
 /* class Character {
   constructor(width, height, health, img){
