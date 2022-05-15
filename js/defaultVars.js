@@ -4,12 +4,23 @@ const ctx = canvas.getContext('2d');
 let frames = 0
 let points = 0
 let clicks = 0
+let bomb = 0
 
 let mouseX = 0
 let mouseY = 0
 
 const arrows = []
 const enemies = []
+
+//arrow types!
+let regular = '/images/heroe/arrow/Move.png'
+let venom = '/images/heroe/arrow/venom.png.png'
+let ice = '/images/heroe/arrow/ice.png'
+let rock = '/images/heroe/arrow/rock.png'
+
+let arrowStyle = regular
+
+
 
 let requestId;
 
@@ -39,4 +50,5 @@ let enemyWalk = [
   '/images/enemy/walk/8.png',
   '/images/enemy/walk/9.png',
 ]
+
 

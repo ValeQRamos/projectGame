@@ -147,7 +147,7 @@ class Enemy {
 }
 
 class Arrow{
-  constructor(x,y,velocity){
+  constructor(x,y,velocity,img){
     this.x = x
     this.y = y
     this.w = 80
@@ -155,7 +155,7 @@ class Arrow{
     this.velocity = velocity
 
     this.image = new Image()
-    this.image.src = '/images/heroe/arrow/Move.png'
+    this.image.src = img
   }
   draw(){
     this.x += this.velocity

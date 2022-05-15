@@ -1,17 +1,14 @@
 window.onload = () => {
 
   const bg = new Background('images/backgrounds/background.png')
-  const snowBlur1 = new BgSnow('images/backgrounds/snowBlur3.png',0.4)
-  const snowBlur2 = new BgSnow('/images/backgrounds/snowBlur11.png',0.2)
+  const snowBlur1 = new BgSnow('/images/backgrounds/snow3.png',0.4)
+  const snowBlur2 = new BgSnow('/images/backgrounds/snow11.png',0.2)
   const heroe = new Heroe(idle,-20,170,300,300)
-  const enemy = new Enemy(enemyWalk,canvas.height,130,400,400,0.07)
+  const enemy = new Enemy(enemyWalk,canvas.height +40,40,500,500,0.03)
   
 
 
-
-  // document.getElementById('startBtn').onclick = () => {
-  //   if(!requestId){startGame()} 
-  // }
+  
 
   addEventListener('keydown',(event) =>{
     event.preventDefault()
@@ -25,7 +22,7 @@ window.onload = () => {
   }
   
   function gameOver(){
-
+    fillRect(0,0,canvas.width,canvas.height)
     requestId = undefined
   }
 
@@ -44,10 +41,21 @@ window.onload = () => {
     drawEnemies()
     generateArrows()
 
+    testingLife()
+
     if(requestId){requestAnimationFrame(updateGame)}
   }
 
   function generateEnemies(){} //---------------
+
+  function testingLife(){
+    ctx.fillStyle = 'black'
+    ctx.fillRect(195,495,410,35)
+    ctx.fillStyle = 'limegreen';
+    ctx.fillRect(200,500,400,25)
+    ctx.fillStyle = 'orangered';
+    ctx.fillRect(200,500,clicks + bomb,25)
+  }
 
   function generateArrows(){
     arrows.forEach((arrow,indexOfArrow) => {
@@ -63,13 +71,13 @@ window.onload = () => {
 
   function drawEnemies(){
     enemy.draw()
-    if(enemy.x <= 100){
+    if(enemy.x <= 70){
       gameOver()
     }
   }
 
   function stats(){} //----------------
-
+  
   addEventListener('keydown',event => {
     event.preventDefault()
     if(event.keyCode === 38) {heroe.y -= 10}
@@ -77,14 +85,18 @@ window.onload = () => {
   })
 
   addEventListener('click', () => {
-    clicks++
-   arrows.push(new Arrow(80,280,13))
+    clicks += 1
+   arrows.push(new Arrow(80,280,13,arrowStyle))
+   console.log(clicks);
+   arrowStyle = regular
   })
 
 };
 
-
-
+ document.getElementById('test').onclick = () => {
+  venom += 0.5
+  arrowStyle = ice
+ }
 
 //temas de gravedad en la clase 02:32
 //temas de generar pipes en la clase 03:01
