@@ -57,7 +57,7 @@ window.onload = () => {
   function generateEnemies(){} //---------------
 
   function testingLife(){
-    let red = clicks + extraDamage
+    let red = damage + extraDamage
 
     ctx.fillStyle = 'black'
     ctx.fillRect(195,15,410,35)
@@ -86,7 +86,9 @@ window.onload = () => {
     }
   }
 
-  function stats(){}//-------------------- 
+  function stats(){
+    ctx.fillStyle()
+  }//-------------------- 
   
   addEventListener('keydown',event => {
     event.preventDefault()
@@ -96,31 +98,80 @@ window.onload = () => {
 
   addEventListener('click', () => {
     event.preventDefault()
-    clicks += 20
+    damage += 0.75
    arrows.push(new Arrow(80,280,13,arrowStyle))
    arrowStyle = regular
    monsterSpeed = regular
 
   })
 
-  document.getElementById('ice').onclick = () => {
-    if(iceButton.style.backgroundColor === blue){
-      extraDamage += 0.5
-      arrowStyle = iceArrow
-      iceCounter++
-      arrowSound.src = iceSound
-      arrowSound.play()
+  addEventListener('keydown',(event) =>{
+    if(event.keyCode === 81){
+      if(rockButton.style.backgroundColor === brown){
+        extraDamage += 1.5
+        arrowStyle = rockArrow
+        rockCounter++
+        arrowSound.src = rockSound
+        arrowSound.play()
+  
+        rockButton.style.backgroundColor = black
+        setTimeout(() => {
+          rockButton.style.backgroundColor = brown
+        },'3000')
+      }
+    }
+    
+    if(event.keyCode === 87){
+      if(venomButton.style.backgroundColor === purple){
+        extraDamage += 3
+        arrowStyle = venomArrow
+        venomCounter++
+        arrowSound.src = venomSound
+        arrowSound.play()
+     }
+ 
+     venomButton.style.backgroundColor = black
+     setTimeout(() => {
+        venomButton.style.backgroundColor = purple
+     },'6000')
+    }
+    
+    if(event.keyCode === 69){
+      if(iceButton.style.backgroundColor === blue){
+        extraDamage += 7.5
+        arrowStyle = iceArrow
+        iceCounter++
+        arrowSound.src = iceSound
+        arrowSound.play()
+      }
+  
+      iceButton.style.backgroundColor = black
+      setTimeout(() => {
+        iceButton.style.backgroundColor = blue
+      },'12000')
     }
 
-    iceButton.style.backgroundColor = black
-    setTimeout(() => {
-      iceButton.style.backgroundColor = blue
-    },'5000')
+
+  })
+
+  document.getElementById('rock').onclick = () => {
+    if(rockButton.style.backgroundColor === brown){
+      extraDamage += 1.5
+      arrowStyle = rockArrow
+      rockCounter++
+      arrowSound.src = rockSound
+      arrowSound.play()
+
+      rockButton.style.backgroundColor = black
+      setTimeout(() => {
+        rockButton.style.backgroundColor = brown
+      },'3000')
+    }
   }
 
   document.getElementById('venom').onclick = () => {
     if(venomButton.style.backgroundColor === purple){
-       extraDamage += 1
+       extraDamage += 3.75
        arrowStyle = venomArrow
        venomCounter++
        arrowSound.src = venomSound
@@ -130,24 +181,28 @@ window.onload = () => {
     venomButton.style.backgroundColor = black
     setTimeout(() => {
        venomButton.style.backgroundColor = purple
-    },'7000')
+    },'6000')
   }
-  
-  
-  document.getElementById('rock').onclick = () => {
-    if(rockButton.style.backgroundColor === brown){
-      extraDamage += 3
-      arrowStyle = rockArrow
-      rockCounter++
-      arrowSound.src = rockSound
-      arrowSound.play()
 
-      rockButton.style.backgroundColor = black
-      setTimeout(() => {
-        rockButton.style.backgroundColor = brown
-      },'10000')
+  document.getElementById('ice').onclick = () => {
+    if(iceButton.style.backgroundColor === blue){
+      extraDamage += 7.5
+      arrowStyle = iceArrow
+      iceCounter++
+      arrowSound.src = iceSound
+      arrowSound.play()
     }
+
+    iceButton.style.backgroundColor = black
+    setTimeout(() => {
+      iceButton.style.backgroundColor = blue
+    },'12000')
   }
+
+  
+  
+  
+  
 
   addEventListener('keydown',event => {
     event.preventDefault()
@@ -157,7 +212,6 @@ window.onload = () => {
 };
 
  
-
 
 
 //temas de generar pipes en la clase 03:01

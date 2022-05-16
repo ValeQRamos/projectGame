@@ -5,10 +5,13 @@ let frames = 0
 let points = 0
 let clicks = 0
 
+let damage = 0
+let extraDamage = 0
+
 let venomCounter = 0
 let iceCounter = 0
 let rockCounter = 0
-let extraDamage = 0
+
 // let mouseX = 0
 // let mouseY = 0
 let requestId;
@@ -26,8 +29,7 @@ let arrowStyle = regular
 
 
 //monster speed
-let regularSpeed = 1
-let slowSpeed = 1
+let regularSpeed = 0.03
 let monsterSpeed = regularSpeed
 
 

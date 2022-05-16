@@ -1,4 +1,30 @@
-body{
+/* landing page */
+
+#landingPage{
+  background-color: white;
+}
+
+header{
+  display: flex;
+  justify-content: center;
+}
+
+header > img{
+  width: 500px;
+}
+
+#info{
+  border: 1px solid crimson;
+  height: 500px;
+  width: 75%;
+}
+
+
+
+
+/* the game page */
+
+#theGame{
   background: #8e9eab;
   background: -webkit-linear-gradient(to right, #eef2f3, #798fa1, #617f97,); 
   background: linear-gradient(to right, #eef2f3, #798fa1, #617f97 ); 
@@ -33,10 +59,10 @@ canvas {
   font-family: 'Roboto',sans-serif;
   font-size: 18px;
   border:none;
-  width: 160px;
+  width: 190px;
   padding: 20px;
   text-align: center;
-  color: #fff;
+  color: rgb(234, 228, 216);
   border-radius: 5px;
   cursor:pointer;
   box-shadow:0 0 10px rgba(0,0,0,0.1)
