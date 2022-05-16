@@ -1,12 +1,11 @@
 body{
-  background: #83a4d4;
-background: -webkit-linear-gradient(to right, #b6fbff, #83a4d4);
-background: linear-gradient(to right, #b6fbff, #83a4d4);
-
+  background: #8e9eab;
+  background: -webkit-linear-gradient(to right, #eef2f3, #798fa1, #617f97,); 
+  background: linear-gradient(to right, #eef2f3, #798fa1, #617f97 ); 
 }
 
 canvas {
-  border: 5px solid #83a4d4;
+  border: 7px solid #798fa1;
   background-color: rgb(28, 39, 46);
 }
 
@@ -19,4 +18,32 @@ canvas {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* Styling buttons */
+
+#btn-container{
+  margin-top: 20px;
+  width: 800px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.btn{
+  font-family: 'Roboto',sans-serif;
+  font-size: 18px;
+  border:none;
+  width: 160px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor:pointer;
+  box-shadow:0 0 10px rgba(0,0,0,0.1)
+}
+
+.btn:hover{
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
