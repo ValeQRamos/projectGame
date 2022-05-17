@@ -82,6 +82,7 @@ class Heroe {
   }
 }
 
+
 class Enemy {
   constructor(arrImg,x,y,w,h,velocity){
     this.arrImg = arrImg
@@ -112,7 +113,7 @@ class Enemy {
     this.imageOfficial = this.image1
   }
   draw(){
-    if(frames % 10 === 0){
+    if(frames % 14 === 0){
       if(this.imageOfficial === this.image1){
         this.imageOfficial = this.image2
       } else if (this.imageOfficial === this.image2){
@@ -146,12 +147,48 @@ class Enemy {
     }
 }
 
+class Slime {
+  constructor(arrImg,x,y,w,h,velocity){
+    this.x = x
+    this.y = y
+    this.w = w
+    this.h = h
+    this.velocity = velocity
+
+    this.image1 = new Image()
+    this.image1.src = arrImg[0]
+    this.image2 = new Image()
+    this.image2.src = arrImg[1]
+    this.image3 = new Image()
+    this.image3.src = arrImg[2]
+    this.image4 = new Image()
+    this.image4.src = arrImg[3]
+    this.imageOfficial = this.image1
+  }
+  draw(){
+    if(frames % 10 === 0){
+      if(this.imageOfficial === this.image1){
+        this.imageOfficial = this.image2
+      } else if (this.imageOfficial === this.image2){
+        this.imageOfficial = this.image3
+      } else if (this.imageOfficial === this.image3){
+        this.imageOfficial = this.image4
+      } else {
+        this.imageOfficial = this.image1
+      }
+    }
+    this.x -= this.velocity
+    ctx.drawImage(this.imageOfficial, this.x, this.y, this.w, this.h)
+  }
+}
+
+
 class Arrow{
   constructor(x,y,velocity,img){
     this.x = x
     this.y = y
-    this.w = 80
-    this.h = 15
+    this.w = 60
+    this.h = 10
     this.velocity = velocity
 
     this.image = new Image()

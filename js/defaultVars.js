@@ -16,11 +16,11 @@ let rockCounter = 0
 // let mouseY = 0
 let requestId;
 
-const enemies = []
+const slimeArmy = []
 
 //arrow types
 const arrows = []
-let regular = '/images/heroe/arrow/Move.png'
+let regular = '/images/heroe/arrow/Static.png'
 let venomArrow = '/images/heroe/arrow/venom.png'
 let iceArrow = '/images/heroe/arrow/ice.png'
 let rockArrow = '/images/heroe/arrow/rock.png'
@@ -60,7 +60,7 @@ rockButton.style.backgroundColor = 'rgb(125, 100, 75)'
 rockButton.style.backgroundColor = brown
 
 
-//heroe default
+//animations
 let idle = [
 '/images/heroe/attack/1.png',
 '/images/heroe/attack/2.png',
@@ -82,6 +82,12 @@ let enemyWalk = [
   '/images/enemy/walk/9.png',
 ]
 
+let slimeWalk = [
+  'images/enemy/slime/1.png',
+  'images/enemy/slime/2.png',
+  'images/enemy/slime/3.png',
+  'images/enemy/slime/4.png',
+]
 
 const funcionara = new Image()
   funcionara.src = '/images/backgrounds/gameOver.png'

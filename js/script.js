@@ -4,8 +4,8 @@ window.onload = () => {
   const bg = new Background('images/backgrounds/background.png')
   const snowBlur1 = new BgSnow('/images/backgrounds/snow3.png',0.4)
   const snowBlur2 = new BgSnow('/images/backgrounds/snow11.png',0.2)
-  const heroe = new Heroe(idle,-20,170,300,300)
-  const enemy = new Enemy(enemyWalk,canvas.height +40,40,500,500,monsterSpeed)
+  const heroe = new Heroe(idle,0,170,100,130)
+  const enemy = new Enemy(enemyWalk,canvas.height +40,40,300,300,monsterSpeed)
   
   
 
@@ -46,15 +46,17 @@ window.onload = () => {
     snowBlur1.draw()
     snowBlur2.draw()
     heroe.draw()
-    enemy.draw()
-    drawEnemies()
+
+    generateEnemies()
+    drawSlimes()
+    drawBoss()
     generateArrows()
     testingLife()
 
     if(requestId){requestAnimationFrame(updateGame)}
   }
 
-  function generateEnemies(){} //---------------
+  
 
   function testingLife(){
     let red = damage + extraDamage
@@ -69,6 +71,15 @@ window.onload = () => {
     if (red >= 400){winGame()}   
   }
 
+  function generateEnemies(){
+    if(frames % 654 === 0 ){
+       let yRandom = Math.floor(Math.random() * (450 -50)) + 50
+      const slime = new Slime(slimeWalk,canvas.height + 210,yRandom,50,50,0.5)
+
+      slimeArmy.push(slime)
+    }
+  }
+
   function generateArrows(){
     arrows.forEach((arrow,indexOfArrow) => {
       arrow.draw()
@@ -79,12 +90,22 @@ window.onload = () => {
     })
   }
 
-  function drawEnemies(){
+  function drawSlimes(){
+    slimeArmy.forEach(slime => {
+      slime.draw()
+      if(heroe.collision(slime)){
+        console.log('aplastado');
+      }
+    })
+  }
+
+  function drawBoss(){
     enemy.draw()
-    if(enemy.x <= 70){
+    if(enemy.x <= 60){
       gameOver()
     }
   }
+
 
   function stats(){
     ctx.fillStyle()
@@ -99,7 +120,7 @@ window.onload = () => {
   addEventListener('click', () => {
     event.preventDefault()
     damage += 0.75
-   arrows.push(new Arrow(80,280,13,arrowStyle))
+   arrows.push(new Arrow(75,heroe.y + 44 ,13,arrowStyle))
    arrowStyle = regular
    monsterSpeed = regular
 
@@ -199,7 +220,13 @@ window.onload = () => {
     },'12000')
   }
 
-  
+  //heroe follow mouse on Y
+  canvas.addEventListener('mousemove',mousePosition)
+  function mousePosition(event){
+    let rect = canvas.getBoundingClientRect()
+
+    heroe.y = event.clientY - rect.top - heroe.h / 2
+  }
   
   
   
