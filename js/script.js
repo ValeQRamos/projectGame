@@ -20,10 +20,6 @@ window.onload = () => {
     requestId = requestAnimationFrame(updateGame)
   }
   
-  function gameOver(){ 
-    ctx.drawImage(funcionara,150,150,500,250)
-    requestId = undefined
-  }
 
   function winGame(){
     ctx.globalAlpha = 0.3
@@ -52,6 +48,7 @@ window.onload = () => {
     drawBoss()
     generateArrows()
     testingLife()
+    stats()
 
     if(requestId){requestAnimationFrame(updateGame)}
   }
@@ -74,27 +71,35 @@ window.onload = () => {
   function generateEnemies(){
     if(frames % 654 === 0 ){
        let yRandom = Math.floor(Math.random() * (450 -50)) + 50
-      const slime = new Slime(slimeWalk,canvas.height + 210,yRandom,50,50,0.5)
+      const slime = new Slime(slimeWalk, canvas.width, yRandom, 50, 50, 0.5)
 
       slimeArmy.push(slime)
     }
   }
 
   function generateArrows(){
-    arrows.forEach((arrow,indexOfArrow) => {
-      arrow.draw()
-
-      if(enemy.collision(arrow)){
-        // console.log('hit');
+    arrows.forEach((arrow, indexOfArrow) => {
+      if(arrow.x > canvas.width){
+        arrows.splice(indexOfArrow,1)
+      }else if(enemy.collision(arrow)){
+        bossHits++
+        damage += 0.75
+        arrows.splice(indexOfArrow,1)
       }
+      arrow.draw()
     })
   }
 
   function drawSlimes(){
-    slimeArmy.forEach(slime => {
+    slimeArmy.forEach((slime, indexOfSlime) => {
       slime.draw()
       if(heroe.collision(slime)){
-        console.log('aplastado');
+        stepSound.play()
+        slimeArmy.splice(indexOfSlime,1)
+      }
+
+      if(slime.x <= -10){
+        gameOver()
       }
     })
   }
@@ -106,34 +111,66 @@ window.onload = () => {
     }
   }
 
+  function gameOver(){ 
+    requestId = undefined
+
+    ctx.drawImage(funcionara,150,150,500,250)
+  }
+
 
   function stats(){
-    ctx.fillStyle()
-  }//-------------------- 
-  
-  addEventListener('keydown',event => {
-    event.preventDefault()
-    if(event.keyCode === 38) {heroe.y -= 10}
-    if(event.keyCode === 40) {heroe.y += 10}
-  })
+    let acc = (bossHits / clicks) * 100
+    let accurracy = acc.toFixed(2)
 
+    let accurracyColor;
+
+    if(accurracy > 75){
+      accurracyColor = 'lime'
+    } else if (accurracy > 50){
+      accurracyColor = 'yellow'
+    } else {
+      accurracyColor = 'orangered'
+    }
+
+    ctx.fillStyle = 'rgba(0,0,0,0.5)'
+    ctx.fillRect(60,canvas.height - 60,canvas.width - 120,50)
+    ctx.fillStyle = 'rgba(234, 228, 216, 0.50)'
+    ctx.fillRect(65,canvas.height -55,220,40)
+    ctx.fillRect(290,canvas.height -55,220,40)
+    ctx.fillRect(515,canvas.height -55,220,40)
+    
+    ctx.fillStyle = 'beige'
+    ctx.font = '20px Roboto'
+    ctx.fillText('TOTAL CLICKS :',70,canvas.height -30)
+    ctx.fillText('BOSS HITS :',300, canvas.height -30)
+    ctx.fillText('ACCURACY :',520, canvas.height -30)
+    
+    ctx.fillStyle = 'rgb(164, 255, 250)'
+    ctx.font = '22px Roboto'
+    ctx.fillText(`${clicks}`,220,canvas.height -30)
+    ctx.fillText(`${bossHits}`,420,canvas.height - 30)
+    ctx.fillStyle = accurracyColor
+    ctx.fillText(`${accurracy}%`, 650,canvas.height - 30)
+  }
+ 
   addEventListener('click', () => {
     event.preventDefault()
-    damage += 0.75
    arrows.push(new Arrow(75,heroe.y + 44 ,13,arrowStyle))
+   clicks += 1
    arrowStyle = regular
    monsterSpeed = regular
-
+  
   })
+  //forEach
 
   addEventListener('keydown',(event) =>{
     if(event.keyCode === 81){
       if(rockButton.style.backgroundColor === brown){
         extraDamage += 1.5
         arrowStyle = rockArrow
-        rockCounter++
-        arrowSound.src = rockSound
-        arrowSound.play()
+        specialHits++
+        gameSound.src = rockSound
+        gameSound.play()
   
         rockButton.style.backgroundColor = black
         setTimeout(() => {
@@ -146,9 +183,9 @@ window.onload = () => {
       if(venomButton.style.backgroundColor === purple){
         extraDamage += 3
         arrowStyle = venomArrow
-        venomCounter++
-        arrowSound.src = venomSound
-        arrowSound.play()
+        specialHits++
+        gameSound.src = venomSound
+        gameSound.play()
      }
  
      venomButton.style.backgroundColor = black
@@ -161,9 +198,9 @@ window.onload = () => {
       if(iceButton.style.backgroundColor === blue){
         extraDamage += 7.5
         arrowStyle = iceArrow
-        iceCounter++
-        arrowSound.src = iceSound
-        arrowSound.play()
+        specialHits++
+        gameSound.src = iceSound
+        gameSound.play()
       }
   
       iceButton.style.backgroundColor = black
@@ -179,9 +216,9 @@ window.onload = () => {
     if(rockButton.style.backgroundColor === brown){
       extraDamage += 1.5
       arrowStyle = rockArrow
-      rockCounter++
-      arrowSound.src = rockSound
-      arrowSound.play()
+      specialHits++
+      gameSound.src = rockSound
+      gameSound.play()
 
       rockButton.style.backgroundColor = black
       setTimeout(() => {
@@ -194,9 +231,9 @@ window.onload = () => {
     if(venomButton.style.backgroundColor === purple){
        extraDamage += 3.75
        arrowStyle = venomArrow
-       venomCounter++
-       arrowSound.src = venomSound
-       arrowSound.play()
+       specialHits++
+       gameSound.src = venomSound
+       gameSound.play()
     }
 
     venomButton.style.backgroundColor = black
@@ -209,9 +246,9 @@ window.onload = () => {
     if(iceButton.style.backgroundColor === blue){
       extraDamage += 7.5
       arrowStyle = iceArrow
-      iceCounter++
-      arrowSound.src = iceSound
-      arrowSound.play()
+      specialHits++
+      gameSound.src = iceSound
+      gameSound.play()
     }
 
     iceButton.style.backgroundColor = black

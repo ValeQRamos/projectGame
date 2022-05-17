@@ -2,18 +2,15 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 
 let frames = 0
-let points = 0
-let clicks = 0
-
 let damage = 0
 let extraDamage = 0
+let red = damage + extraDamage
 
-let venomCounter = 0
-let iceCounter = 0
-let rockCounter = 0
+let clicks = 0
+let specialHits = 0
+let bossHits = 0
 
-// let mouseX = 0
-// let mouseY = 0
+
 let requestId;
 
 const slimeArmy = []
@@ -24,7 +21,6 @@ let regular = '/images/heroe/arrow/Static.png'
 let venomArrow = '/images/heroe/arrow/venom.png'
 let iceArrow = '/images/heroe/arrow/ice.png'
 let rockArrow = '/images/heroe/arrow/rock.png'
-
 let arrowStyle = regular
 
 
@@ -34,12 +30,15 @@ let monsterSpeed = regularSpeed
 
 
 // sounds 
-let arrowSound = new Audio()
+let gameSound = new Audio()
 regularSound = '/audio/arrow.wav'
 iceSound = '/audio/ice.wav'
 rockSound = '/audio/rock.wav'
 venomSound = '/audio/venom.wav'
-arrowSound.src = regularSound
+gameSound.src = regularSound
+
+let stepSound = new Audio()
+stepSound.src = '/audio/snowStep.wav'
 
 
 //buttons style
@@ -52,7 +51,6 @@ venomButton.style.backgroundColor = purple
 let iceButton = document.querySelector('#ice')
 let blue = 'rgb(70, 135, 175)'
 iceButton.style.backgroundColor = blue
-
 
 let rockButton = document.querySelector('#rock')
 let brown = 'rgb(90, 85, 85)'
