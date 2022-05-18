@@ -1,6 +1,9 @@
 
 window.onload = () => {
-
+  // landing page
+  landing()
+  
+  //game
   const bg = new Background('images/backgrounds/background.png')
   const snowBlur1 = new BgSnow('/images/backgrounds/snow3.png',0.4)
   const snowBlur2 = new BgSnow('/images/backgrounds/snow11.png',0.2)
@@ -52,8 +55,6 @@ window.onload = () => {
 
     if(requestId){requestAnimationFrame(updateGame)}
   }
-
-  
 
   function testingLife(){
     let red = damage + extraDamage
@@ -274,16 +275,3 @@ window.onload = () => {
     if(event.keyCode === 88){winGame()}  //x 2 veces
   })
 };
-
- 
-
-
-//temas de generar pipes en la clase 03:01
-//borrar elementos que se salieron del canvas 03:33 y 03:37 activar gameOver con choques
-//colocar el gameover 04:03
-//idea disparar con keydown y dejar de disparar con keyup
-//poner los puntos 03:57
-//ponerle audio 04:15
-
-
-//checar como provocar un gameOver (requestId = undefined)

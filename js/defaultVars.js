@@ -89,3 +89,9 @@ let slimeWalk = [
 
 const funcionara = new Image()
   funcionara.src = '/images/backgrounds/gameOver.png'
+
+
+let logo = new Image()
+
+logo.src = '/images/backgrounds/snowgame.png'
+

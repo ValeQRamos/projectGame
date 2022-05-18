@@ -1,28 +1,4 @@
-/* landing page */
-
-#landingPage{
-  background-color: white;
-}
-
-header{
-  display: flex;
-  justify-content: center;
-}
-
-header > img{
-  width: 500px;
-}
-
-#info{
-  border: 1px solid crimson;
-  height: 500px;
-  width: 75%;
-}
-
-
-
-
-/* the game page */
+/*canvas page */
 
 #theGame{
   background: #8e9eab;

@@ -6,34 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles/style.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap" rel="stylesheet">
 
-  <title>SNW WOODS</title>
+  <title>Project Game</title>
 </head>
-<body id="landingPage">
+<body id="theGame">
+  
 
-  <header>
-    <img id="logo" src="images/backgrounds/snowgame.png" alt="logo">
-  </header>
+  <div class="container">
+    
+    <button id="startBtn" class="btn">PRESS ENTER</button>
 
-  <div id="info">
-    <h1 id="infoTitle">A monster is on its way to destroy your village and you have only 60 seconds to defeat it</h1>
-    <h3>Instructions and info</h3>
-    <h4>Using your clicks you have to destroy the monster! , you can find support to your pourpose using the next ventages:</h4>
-    <ul>
-      <li>Arrows made of rocks</li>
-      <p>200%</p>
-      <li>Arrows with Poison</li>
-      <p>500%</p>
-      <li>Arrows whith a spell of ice</li>
-      <p>1000%</p>
-    </ul>
+    <canvas id="canvas1" width="800" height="550"></canvas>
+
+    <div id="btn-container">
+      <button id="rock" class="btn">ROCK <br> 200% damage</button>
+      <button id="venom" class="btn">VENOM <br> 500% damage</button>
+      <button id="ice" class="btn">ICE <br> 1000% damage</button>
+    </div>
+    
   </div>
 
 
-  <a href="theGame.html">Click Here to Play</a>
+  <script src="js/defaultVars.js"></script>
+  <script src="js/landrinPage.js"></script>
+  <script src="js/classes.js"></script>
+  <script src="js/script.js"></script>
 
 </body>
 </html>
