@@ -1,6 +1,6 @@
 function landing(){
   let logo = new Image()
-  logo.src = '/images/backgrounds/snowgame.png'
+  logo.src = 'images/backgrounds/snowgame.png'
   ctx.drawImage(logo,250,10,300,100)
 
   ctx.fillStyle = 'beige'

@@ -5,8 +5,8 @@ window.onload = () => {
   
   //game
   const bg = new Background('images/backgrounds/background.png')
-  const snowBlur1 = new BgSnow('/images/backgrounds/snow3.png',0.4)
-  const snowBlur2 = new BgSnow('/images/backgrounds/snow11.png',0.2)
+  const snowBlur1 = new BgSnow('images/backgrounds/snow3.png',0.4)
+  const snowBlur2 = new BgSnow('images/backgrounds/snow11.png',0.2)
   const heroe = new Heroe(idle,0,170,100,130)
   const enemy = new Enemy(enemyWalk,canvas.height +40,40,300,300,monsterSpeed)
   

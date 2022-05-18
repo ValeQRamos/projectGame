@@ -17,10 +17,10 @@ const slimeArmy = []
 
 //arrow types
 const arrows = []
-let regular = '/images/heroe/arrow/Static.png'
-let venomArrow = '/images/heroe/arrow/venom.png'
-let iceArrow = '/images/heroe/arrow/ice.png'
-let rockArrow = '/images/heroe/arrow/rock.png'
+let regular = 'images/heroe/arrow/Static.png'
+let venomArrow = 'images/heroe/arrow/venom.png'
+let iceArrow = 'images/heroe/arrow/ice.png'
+let rockArrow = 'images/heroe/arrow/rock.png'
 let arrowStyle = regular
 
 
@@ -31,14 +31,14 @@ let monsterSpeed = regularSpeed
 
 // sounds 
 let gameSound = new Audio()
-regularSound = '/audio/arrow.wav'
-iceSound = '/audio/ice.wav'
-rockSound = '/audio/rock.wav'
-venomSound = '/audio/venom.wav'
+regularSound = 'audio/arrow.wav'
+iceSound = 'audio/ice.wav'
+rockSound = 'audio/rock.wav'
+venomSound = 'audio/venom.wav'
 gameSound.src = regularSound
 
 let stepSound = new Audio()
-stepSound.src = '/audio/snowStep.wav'
+stepSound.src = 'audio/snowStep.wav'
 
 
 //buttons style
@@ -60,24 +60,24 @@ rockButton.style.backgroundColor = brown
 
 //animations
 let idle = [
-'/images/heroe/attack/1.png',
-'/images/heroe/attack/2.png',
-'/images/heroe/attack/3.png',
-'/images/heroe/attack/4.png',
-'/images/heroe/attack/5.png',
-'/images/heroe/attack/6.png',
+'images/heroe/attack/1.png',
+'images/heroe/attack/2.png',
+'images/heroe/attack/3.png',
+'images/heroe/attack/4.png',
+'images/heroe/attack/5.png',
+'images/heroe/attack/6.png',
 ]
 
 let enemyWalk = [
-  '/images/enemy/walk/1.png',
-  '/images/enemy/walk/2.png',
-  '/images/enemy/walk/3.png',
-  '/images/enemy/walk/4.png',
-  '/images/enemy/walk/5.png',
-  '/images/enemy/walk/6.png',
-  '/images/enemy/walk/7.png',
-  '/images/enemy/walk/8.png',
-  '/images/enemy/walk/9.png',
+  'images/enemy/walk/1.png',
+  'images/enemy/walk/2.png',
+  'images/enemy/walk/3.png',
+  'images/enemy/walk/4.png',
+  'images/enemy/walk/5.png',
+  'images/enemy/walk/6.png',
+  'images/enemy/walk/7.png',
+  'images/enemy/walk/8.png',
+  'images/enemy/walk/9.png',
 ]
 
 let slimeWalk = [
@@ -88,10 +88,10 @@ let slimeWalk = [
 ]
 
 const funcionara = new Image()
-  funcionara.src = '/images/backgrounds/gameOver.png'
+  funcionara.src = 'images/backgrounds/gameOver.png'
 
 
 let logo = new Image()
 
-logo.src = '/images/backgrounds/snowgame.png'
+logo.src = 'images/backgrounds/snowgame.png'
 
