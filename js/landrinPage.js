@@ -49,5 +49,4 @@ function landing(){
   ctx.fillText('Ice arrow can be used every 12 seconds',236,308)
   ctx.fillText('You can win without using the special arrows... just be fast',236,380)
   ctx.fillText('Also slimes are not allowed in the city, crush them with bow.',247,193)
-  ctx.fillTect('Rock Arrow can be use every 3 seconds', 336,200)
 }
