@@ -11,6 +11,7 @@ let specialHits = 0
 let bossHits = 0
 
 
+
 let requestId;
 
 const slimeArmy = []
@@ -45,15 +46,15 @@ stepSound.src = 'audio/snowStep.wav'
 let black = 'rgb(25,25,25)'
 
 let venomButton = document.querySelector('#venom')
-let purple = 'rgb(115, 80, 115)'
+let purple = 'rgb(145, 73, 240)'
 venomButton.style.backgroundColor = purple
 
 let iceButton = document.querySelector('#ice')
-let blue = 'rgb(70, 135, 175)'
+let blue = 'rgb(50, 160, 228)'
 iceButton.style.backgroundColor = blue
 
 let rockButton = document.querySelector('#rock')
-let brown = 'rgb(90, 85, 85)'
+let brown = 'rgb(149, 111, 95)'
 rockButton.style.backgroundColor = 'rgb(125, 100, 75)'
 rockButton.style.backgroundColor = brown
 
@@ -91,7 +92,18 @@ const funcionara = new Image()
   funcionara.src = 'images/backgrounds/gameOver.png'
 
 
+//vars for landing page
 let logo = new Image()
-
 logo.src = 'images/backgrounds/snowgame.png'
 
+let arrowBg = new Image()
+arrowBg.src = 'images/backgrounds/File1.png'
+
+let bulbBg = new Image()
+bulbBg.src = 'images/backgrounds/bulb.png'
+
+let bookBg = new Image()
+bookBg.src = 'images/backgrounds/book.png'
+ 
+let extraBook = new Image()
+extraBook.src = 'images/backgrounds/extraBooks.png'

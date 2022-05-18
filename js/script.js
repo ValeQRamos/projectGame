@@ -2,7 +2,6 @@
 window.onload = () => {
   // landing page
   landing()
-  
   //game
   const bg = new Background('images/backgrounds/background.png')
   const snowBlur1 = new BgSnow('images/backgrounds/snow3.png',0.4)
