@@ -9,7 +9,7 @@ let red = damage + extraDamage
 let clicks = 0
 let specialHits = 0
 let bossHits = 0
-
+let deadSlimes = 0
 
 
 let requestId;
@@ -42,8 +42,9 @@ let stepSound = new Audio()
 stepSound.src = 'audio/snowStep.wav'
 
 
+
 //buttons style
-let black = 'rgb(25,25,25)'
+let black = 'rgb(30, 36, 36)'
 
 let venomButton = document.querySelector('#venom')
 let purple = 'rgb(145, 73, 240)'
@@ -133,7 +134,7 @@ const funcionara = new Image()
   funcionara.src = 'images/backgrounds/gameOver.png'
 
 
-//images for landing page
+//images for landing page and the stats
 let logo = new Image()
 logo.src = 'images/backgrounds/snowgame.png'
 
@@ -148,3 +149,6 @@ bookBg.src = 'images/backgrounds/book.png'
  
 let extraBook = new Image()
 extraBook.src = 'images/backgrounds/extraBooks.png'
+
+let graySlime = new Image()
+graySlime.src = 'images/backgrounds/blackNwhiteSlime.png'

@@ -5,10 +5,10 @@ window.onload = () => {
   
   //game
   const bg = new Background('images/backgrounds/background.png')
-  const snowBlur1 = new BgSnow('images/backgrounds/snow3.png',0.4)
-  const snowBlur2 = new BgSnow('images/backgrounds/snow11.png',0.2)
-  const heroe = new Heroe(idle,0,170,100,130)
-  const enemy = new Enemy(enemyWalk,canvas.height +40,40,250,250,monsterSpeed)
+  const snowBlur1 = new BgSnow('images/backgrounds/snow.png',0.4)
+  const snowBlur2 = new BgSnow('images/backgrounds/snow8.png',0.2)
+  const heroe = new Heroe(idle,5,170,100,130)
+  const enemy = new Enemy(enemyWalk,canvas.height +40,100,250,250,monsterSpeed)
   
   
 
@@ -42,7 +42,6 @@ window.onload = () => {
     ctx.clearRect(0,0,canvas.width,canvas.height)
 
     bg.draw()
-    snowBlur1.draw()
     snowBlur2.draw()
     heroe.draw()
 
@@ -50,8 +49,12 @@ window.onload = () => {
     drawSlimes()
     drawBoss()
     generateArrows()
+
+    snowBlur1.draw()
     testingLife()
     stats()
+
+    
 
     if(requestId){requestAnimationFrame(updateGame)}
   }
@@ -104,6 +107,7 @@ window.onload = () => {
       slime.draw()
       if(heroe.collision(slime)){
         stepSound.play()
+        deadSlimes++
         slimeArmy.splice(indexOfSlime,1)
       }
 
@@ -125,9 +129,12 @@ window.onload = () => {
 
     ctx.drawImage(funcionara,150,150,500,250)
   }
-
+  
 
   function stats(){
+    ctx.fillStyle = 'rgb(30, 36, 36)'
+    ctx.fillRect(25,15,110,36)
+    ctx.drawImage(graySlime,12,9,65,35)
 
     let acc = 0
     if(bossHits > 0 || clicks > 0){
@@ -145,25 +152,27 @@ window.onload = () => {
       accurracyColor = 'orangered'
     }
 
-    ctx.fillStyle = 'rgba(0,0,0,0.5)'
+    ctx.fillStyle = 'rgb(30, 36, 36)'
     ctx.fillRect(60,canvas.height - 60,canvas.width - 120,50)
-    ctx.fillStyle = 'rgba(234, 228, 216, 0.50)'
+    ctx.fillStyle = 'rgb(65, 72, 74)'
     ctx.fillRect(65,canvas.height -55,220,40)
     ctx.fillRect(290,canvas.height -55,220,40)
     ctx.fillRect(515,canvas.height -55,220,40)
     
     ctx.fillStyle = 'beige'
-    ctx.font = '22px Roboto'
-    ctx.fillText('TOTAL CLICKS :',70,canvas.height -28)
-    ctx.fillText('BOSS HITS :',300, canvas.height -28)
-    ctx.fillText('ACCURACY :',523, canvas.height -28)
-    
-    ctx.fillStyle = 'rgb(164, 255, 250)'
-    ctx.font = '22px Roboto'
-    ctx.fillText(`${clicks}`,227,canvas.height -28)
-    ctx.fillText(`${bossHits}`,427,canvas.height - 28)
+    ctx.font = '23px monospace'
+    ctx.fillText('TOTAL CLICKS:',74,canvas.height -28)
+    ctx.fillText('BOSS HITS:',315, canvas.height -28)
+    ctx.fillText('ACCURACY:',540, canvas.height -28)
+    ctx.font = '22px monospace'
+    ctx.fillText(`${clicks}`,242,canvas.height -28)
+    ctx.fillText(`${bossHits}`,445,canvas.height - 28)
     ctx.fillStyle = accurracyColor
     ctx.fillText(`${accurracy}%`, 655,canvas.height - 28)
+    
+    ctx.font = '25 monospace'
+    ctx.fillStyle = 'beige'
+    ctx.fillText(` X ${deadSlimes}`,60,40)
   }
  
   addEventListener('click', () => {
