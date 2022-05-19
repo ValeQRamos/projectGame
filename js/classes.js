@@ -113,7 +113,7 @@ class Enemy {
     this.imageOfficial = this.image1
   }
   draw(){
-    if(frames % 14 === 0){
+    if(frames % 20 === 0){
       if(this.imageOfficial === this.image1){
         this.imageOfficial = this.image2
       } else if (this.imageOfficial === this.image2){
@@ -134,6 +134,8 @@ class Enemy {
         this.imageOfficial = this.image1
       }
     }
+    ctx.webkitImageSmoothingEnabled = false;
+    ctx.imageSmoothingEnabled = false;
     this.x -= this.velocity
     ctx.drawImage(this.imageOfficial,this.x,this.y,this.w,this.h)
     }
@@ -182,6 +184,35 @@ class Slime {
   }
 }
 
+class BlueSlime extends Slime{
+  constructor(arrImg,x,y,w,h,velocity){
+    super(arrImg,x,y,w,h,velocity)
+  }
+}
+
+class PinkSlime extends Slime{
+  constructor(arrImg,x,y,w,h,velocity){
+    super(arrImg,x,y,w,h,velocity)
+  }
+}
+
+class RedSlime extends Slime{
+  constructor(arrImg,x,y,w,h,velocity){
+    super(arrImg,x,y,w,h,velocity)
+  }
+}
+
+class PurpleSlime extends Slime{
+  constructor(arrImg,x,y,w,h,velocity){
+    super(arrImg,x,y,w,h,velocity)
+  }
+}
+
+class YellowSlime extends Slime{
+  constructor(arrImg,x,y,w,h,velocity){
+    super(arrImg,x,y,w,h,velocity)
+  }
+}
 
 class Arrow{
   constructor(x,y,velocity,img){

@@ -79,20 +79,61 @@ let enemyWalk = [
   'images/enemy/walk/7.png',
   'images/enemy/walk/8.png',
   'images/enemy/walk/9.png',
+
 ]
 
 let slimeWalk = [
-  'images/enemy/slime/1.png',
   'images/enemy/slime/2.png',
   'images/enemy/slime/3.png',
   'images/enemy/slime/4.png',
+  'images/enemy/slime/1.png',
+]
+
+let blueSlimeWalk = [
+  'images/enemy/blueSlime/1.png',
+  'images/enemy/blueSlime/2.png',
+  'images/enemy/blueSlime/3.png',
+  'images/enemy/blueSlime/4.png',
+]
+
+let pinkSlimeWalk = [
+  'images/enemy/pinkSlime/3.png',
+  'images/enemy/pinkSlime/4.png',
+  'images/enemy/pinkSlime/1.png',
+  'images/enemy/pinkSlime/2.png',
+  'images/enemy/pinkSlime/3.png',
+  'images/enemy/pinkSlime/4.png',
+  'images/enemy/pinkSlime/1.png',
+  'images/enemy/pinkSlime/2.png',
+  'images/enemy/pinkSlime/2.png'
+]
+
+let yellowSlimeRun = [
+  'images/enemy/yellowSlime/1.png',
+  'images/enemy/yellowSlime/2.png',
+  'images/enemy/yellowSlime/3.png',
+  'images/enemy/yellowSlime/4.png',
+]
+
+let redSlimeRun = [
+  'images/enemy/redSlime/1.png',
+  'images/enemy/redSlime/2.png',
+  'images/enemy/redSlime/3.png',
+  'images/enemy/redSlime/4.png',
+]
+
+let purpleSlimeRun = [
+  'images/enemy/purpleSlime/1.png',
+  'images/enemy/purpleSlime/2.png',
+  'images/enemy/purpleSlime/3.png',
+  'images/enemy/purpleSlime/4.png',
 ]
 
 const funcionara = new Image()
   funcionara.src = 'images/backgrounds/gameOver.png'
 
 
-//vars for landing page
+//images for landing page
 let logo = new Image()
 logo.src = 'images/backgrounds/snowgame.png'
 

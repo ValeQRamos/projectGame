@@ -8,7 +8,7 @@ window.onload = () => {
   const snowBlur1 = new BgSnow('images/backgrounds/snow3.png',0.4)
   const snowBlur2 = new BgSnow('images/backgrounds/snow11.png',0.2)
   const heroe = new Heroe(idle,0,170,100,130)
-  const enemy = new Enemy(enemyWalk,canvas.height +40,40,300,300,monsterSpeed)
+  const enemy = new Enemy(enemyWalk,canvas.height +40,40,250,250,monsterSpeed)
   
   
 
@@ -70,11 +70,19 @@ window.onload = () => {
   }
 
   function generateEnemies(){
-    if(frames % 654 === 0 ){
-       let yRandom = Math.floor(Math.random() * (450 -50)) + 50
-      const slime = new Slime(slimeWalk, canvas.width, yRandom, 50, 50, 0.5)
+    if(frames % 345 === 0 ){
+      let yRandom = Math.floor(Math.random() * (450 -50)) + 50
 
-      slimeArmy.push(slime)
+      const slime = new Slime(slimeWalk, canvas.width, yRandom, 50, 50, 0.5)
+      const blueSlime = new BlueSlime(blueSlimeWalk, canvas.width, yRandom, 50, 50, 0.5)
+      const pinkSlime = new PinkSlime(pinkSlimeWalk, canvas.width, yRandom, 50, 50, 0.5)
+      const yellowSlime = new YellowSlime(yellowSlimeRun, canvas.width, yRandom, 50, 50, 0.5)
+      const purpleSlime = new YellowSlime(purpleSlimeRun, canvas.width, yRandom, 50, 50, 0.5)
+
+
+      let allTheSlimes = [slime, blueSlime, pinkSlime, yellowSlime, purpleSlime];
+
+      slimeArmy.push(allTheSlimes[Math.floor(Math.random() * allTheSlimes.length)])
     }
   }
 
@@ -120,9 +128,13 @@ window.onload = () => {
 
 
   function stats(){
-    let acc = (bossHits / clicks) * 100
-    let accurracy = Math.round(acc)
 
+    let acc = 0
+    if(bossHits > 0 || clicks > 0){
+      acc = (bossHits / clicks) * 100
+    }
+
+    let accurracy = Math.ceil(acc)
     let accurracyColor;
 
     if(accurracy > 75){
