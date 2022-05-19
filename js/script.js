@@ -2,6 +2,7 @@
 window.onload = () => {
   // landing page
   landing()
+  
   //game
   const bg = new Background('images/backgrounds/background.png')
   const snowBlur1 = new BgSnow('images/backgrounds/snow3.png',0.4)
@@ -120,7 +121,7 @@ window.onload = () => {
 
   function stats(){
     let acc = (bossHits / clicks) * 100
-    let accurracy = acc.toFixed(2)
+    let accurracy = Math.round(acc)
 
     let accurracyColor;
 
@@ -140,17 +141,17 @@ window.onload = () => {
     ctx.fillRect(515,canvas.height -55,220,40)
     
     ctx.fillStyle = 'beige'
-    ctx.font = '20px Roboto'
-    ctx.fillText('TOTAL CLICKS :',70,canvas.height -30)
-    ctx.fillText('BOSS HITS :',300, canvas.height -30)
-    ctx.fillText('ACCURACY :',520, canvas.height -30)
+    ctx.font = '22px Roboto'
+    ctx.fillText('TOTAL CLICKS :',70,canvas.height -28)
+    ctx.fillText('BOSS HITS :',300, canvas.height -28)
+    ctx.fillText('ACCURACY :',523, canvas.height -28)
     
     ctx.fillStyle = 'rgb(164, 255, 250)'
     ctx.font = '22px Roboto'
-    ctx.fillText(`${clicks}`,220,canvas.height -30)
-    ctx.fillText(`${bossHits}`,420,canvas.height - 30)
+    ctx.fillText(`${clicks}`,227,canvas.height -28)
+    ctx.fillText(`${bossHits}`,427,canvas.height - 28)
     ctx.fillStyle = accurracyColor
-    ctx.fillText(`${accurracy}%`, 650,canvas.height - 30)
+    ctx.fillText(`${accurracy}%`, 655,canvas.height - 28)
   }
  
   addEventListener('click', () => {

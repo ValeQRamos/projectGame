@@ -33,20 +33,22 @@ function landing(){
 
   ctx.drawImage(bookBg,25,130,43,43)
   ctx.drawImage(bulbBg,25,350,45,45)
-  ctx.drawImage(extraBook,25,230,45,45)
+  ctx.drawImage(extraBook,25,235,45,45)
 
   ctx.font = '20px Roboto'
   ctx.fillStyle = 'beige'
 
-  ctx.fillText('INSTRUCTIONS :   You have to defeat the monster using your clicks.',80,160)
-  ctx.fillText('EXTRA INFO :',80,260)
+  ctx.fillText('INSTRUCTIONS :   - You have to defeat the monster using your clicks.',80,160)
+  ctx.fillText('EXTRA INFO :',80,265)
   ctx.fillText('PRO TIP :',80,380)
 
   ctx.font = '20px Roboto'
   ctx.fillStyle = 'beige'
-  ctx.fillText('Rock arrow can be used every 3 seconds',236,258)
-  ctx.fillText('Venom arrow can be used every 6 seconds',236,283)
-  ctx.fillText('Ice arrow can be used every 12 seconds',236,308)
-  ctx.fillText('You can win without using the special arrows... just be fast',236,380)
-  ctx.fillText('Also slimes are not allowed in the city, crush them with bow.',247,193)
+  ctx.fillText('- Rock arrow can be used every 3 seconds',245,263)
+  ctx.fillText('- Venom arrow can be used every 6 seconds',245,283)
+  ctx.fillText('- Ice arrow can be used every 12 seconds',246,303)
+  ctx.fillText('- You can win without using the special arrows... just be fast',245,380)
+  ctx.fillText('- Also, do not let slimes go past you and get into the city,',245,185)
+  ctx.fillText('stop them by placing your character in their way.',257,207)
+
 }
