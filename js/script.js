@@ -76,11 +76,11 @@ window.onload = () => {
     if(frames % 345 === 0 ){
       let yRandom = Math.floor(Math.random() * (450 -50)) + 50
 
-      const slime = new Slime(slimeWalk, canvas.width, yRandom, 50, 50, 0.5)
-      const blueSlime = new BlueSlime(blueSlimeWalk, canvas.width, yRandom, 50, 50, 0.5)
-      const pinkSlime = new PinkSlime(pinkSlimeWalk, canvas.width, yRandom, 50, 50, 0.5)
-      const yellowSlime = new YellowSlime(yellowSlimeRun, canvas.width, yRandom, 50, 50, 0.5)
-      const purpleSlime = new YellowSlime(purpleSlimeRun, canvas.width, yRandom, 50, 50, 0.5)
+      const slime = new Slime(slimeWalk, canvas.width, yRandom, 50, 50, 0.8)
+      const blueSlime = new BlueSlime(blueSlimeWalk, canvas.width, yRandom, 50, 50, 0.8)
+      const pinkSlime = new PinkSlime(pinkSlimeWalk, canvas.width, yRandom, 50, 50, 0.8)
+      const yellowSlime = new YellowSlime(yellowSlimeRun, canvas.width, yRandom, 50, 50, 0.8)
+      const purpleSlime = new YellowSlime(purpleSlimeRun, canvas.width, yRandom, 50, 50, 0.8)
 
 
       let allTheSlimes = [slime, blueSlime, pinkSlime, yellowSlime, purpleSlime];
