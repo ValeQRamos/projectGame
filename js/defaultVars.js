@@ -31,6 +31,7 @@ let monsterSpeed = regularSpeed
 
 
 // sounds 
+const battleMusic = new Audio('audio/battleLoop.mp3')
 let gameSound = new Audio()
 regularSound = 'audio/arrow.wav'
 iceSound = 'audio/ice.wav'
@@ -130,6 +131,20 @@ let purpleSlimeRun = [
   'images/enemy/purpleSlime/4.png',
 ]
 
+let oneEyeBlueRun = [
+  'images/enemy/OneEyeBlue/1.png',
+  'images/enemy/OneEyeBlue/2.png',
+  'images/enemy/OneEyeBlue/3.png',
+  'images/enemy/OneEyeBlue/4.png'
+]
+
+let oneEyePinkRun = [
+  'images/enemy/OneEyePink/1.png',
+  'images/enemy/OneEyePink/2.png',
+  'images/enemy/OneEyePink/3.png',
+  'images/enemy/OneEyePink/4.png'
+]
+
 const funcionara = new Image()
   funcionara.src = 'images/backgrounds/gameOver.png'
 
@@ -152,3 +167,12 @@ extraBook.src = 'images/backgrounds/extraBooks.png'
 
 let graySlime = new Image()
 graySlime.src = 'images/backgrounds/blackNwhiteSlime.png'
+
+let greenSlime = new Image()
+greenSlime.src = 'images/enemy/slime/1.png'
+
+let winThrophy = new Image()
+winThrophy.src = 'images/backgrounds/win.png'
+
+let loseFLame = new Image()
+loseFLame.src = 'images/backgrounds/flame.png'

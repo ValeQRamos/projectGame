@@ -54,3 +54,45 @@ function landing(){
   ctx.fillText('by placing your character in their way.',270,210)
 
 }
+
+
+function dawWinning(){
+    ctx.fillStyle = 'rgb(30, 36, 36)'
+    ctx.fillRect(0,0,canvas.width,canvas.height)
+
+    ctx.globalAlpha = 1
+    ctx.fillStyle = 'beige'
+    ctx.font = '45px monospace'
+    ctx.fillText('CONGRATULATIONS YOU WIN!',100,100)
+    
+    ctx.font = '28px monospace'
+    ctx.fillText('Thanks to you, your village is safe again.',85,170)
+    ctx.fillText('You defeated the monster,',200,220)
+    ctx.fillText('and without their leader the slimes',145,270)
+    ctx.fillText('decided to retreat',270,320)
+
+    ctx.drawImage(winThrophy,20,370,120,120)
+    ctx.drawImage(winThrophy,220,370,120,120)
+    ctx.drawImage(winThrophy,450,370,120,120)
+    ctx.drawImage(winThrophy,660,370,120,120)
+}
+
+
+function drawGameOver(){
+  ctx.fillStyle = 'rgb(30, 36, 36)'
+  ctx.fillRect(0,0,canvas.width,canvas.height)
+
+  ctx.globalAlpha = 1
+  ctx.fillStyle = 'beige'
+  ctx.font = '55px monospace'
+  ctx.fillText('YOU LOST!',260,100)
+
+  ctx.font = '28px monospace'
+  ctx.fillText('You allowed the slimes into the village',85,170)
+  ctx.fillText(` and they’ve destroyed it.`,200,220)
+
+  ctx.drawImage(loseFLame,75,434,150,150)
+  ctx.drawImage(loseFLame,240,434,150,150)
+  ctx.drawImage(loseFLame,460,434,150,150)
+  ctx.drawImage(loseFLame,600,434,150,150)
+}

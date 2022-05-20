@@ -7,7 +7,7 @@ window.onload = () => {
   const bg = new Background('images/backgrounds/background.png')
   const snowBlur1 = new BgSnow('images/backgrounds/snow.png',0.4)
   const snowBlur2 = new BgSnow('images/backgrounds/snow8.png',0.2)
-  const heroe = new Heroe(idle,5,170,100,130)
+  const heroe = new Heroe(idle,15,170,100,130)
   const enemy = new Enemy(enemyWalk,canvas.height +40,100,250,250,monsterSpeed)
   
   
@@ -20,21 +20,15 @@ window.onload = () => {
   })
   
   function startGame(){
+    battleMusic.play()
+    battleMusic.volume = 0.2
     requestId = requestAnimationFrame(updateGame)
   }
   
 
   function winGame(){
-    ctx.globalAlpha = 0.3
-    ctx.fillStyle = 'beige'
-    ctx.fillRect(50,50,canvas.width -100,canvas.height -100)
-
-    ctx.globalAlpha = 1
-    ctx.fillStyle = 'crimson'
-    ctx.font = '40px Roboto'
-    ctx.fillText('Congratulations YOU WIN!',180,400)
-
     requestId = undefined
+    dawWinning()  //from landingPage.js
   }
 
   function updateGame(){
@@ -53,8 +47,6 @@ window.onload = () => {
     snowBlur1.draw()
     testingLife()
     stats()
-
-    
 
     if(requestId){requestAnimationFrame(updateGame)}
   }
@@ -76,12 +68,13 @@ window.onload = () => {
     if(frames % 345 === 0 ){
       let yRandom = Math.floor(Math.random() * (450 -50)) + 50
 
-      const slime = new Slime(slimeWalk, canvas.width, yRandom, 50, 50, 0.8)
-      const blueSlime = new BlueSlime(blueSlimeWalk, canvas.width, yRandom, 50, 50, 0.8)
-      const pinkSlime = new PinkSlime(pinkSlimeWalk, canvas.width, yRandom, 50, 50, 0.8)
-      const yellowSlime = new YellowSlime(yellowSlimeRun, canvas.width, yRandom, 50, 50, 0.8)
-      const purpleSlime = new YellowSlime(purpleSlimeRun, canvas.width, yRandom, 50, 50, 0.8)
+     
 
+      const slime = new Slime(slimeWalk, canvas.width, yRandom, 50, 50, 1.20)
+      const blueSlime = new Slime(blueSlimeWalk, canvas.width, yRandom, 50, 50, 0.7)
+      const pinkSlime = new Slime(pinkSlimeWalk, canvas.width, yRandom, 50, 50, 0.7)
+      const yellowSlime = new Slime(yellowSlimeRun, canvas.width, yRandom, 50, 50, 0.7)
+      const purpleSlime = new Slime(purpleSlimeRun, canvas.width, yRandom, 50, 50, 0.7)
 
       let allTheSlimes = [slime, blueSlime, pinkSlime, yellowSlime, purpleSlime];
 
@@ -125,9 +118,10 @@ window.onload = () => {
   }
 
   function gameOver(){ 
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+    drawGameOver()
     requestId = undefined
-
-    ctx.drawImage(funcionara,150,150,500,250)
+    
   }
   
 
@@ -135,6 +129,10 @@ window.onload = () => {
     ctx.fillStyle = 'rgb(30, 36, 36)'
     ctx.fillRect(25,15,110,36)
     ctx.drawImage(graySlime,12,9,65,35)
+
+    ctx.fillStyle = 'rgb(30, 38, 36)'
+    ctx.fillRect(660,15,125,36)
+    ctx.drawImage(greenSlime,660,18,23,23)
 
     let acc = 0
     if(bossHits > 0 || clicks > 0){
@@ -173,6 +171,10 @@ window.onload = () => {
     ctx.font = '25 monospace'
     ctx.fillStyle = 'beige'
     ctx.fillText(` X ${deadSlimes}`,60,40)
+
+    ctx.font ='14 monospace'
+    ctx.fillStyle = 'beige'
+    ctx.fillText('X2 speed',685,40)
   }
  
   addEventListener('click', () => {

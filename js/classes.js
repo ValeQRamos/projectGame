@@ -55,7 +55,7 @@ class Heroe {
     this.imageOfficial = this.image1
   }
   draw(){
-    if(frames % 10 === 0){
+    if(frames % 7 === 0){
       if(this.imageOfficial === this.image1){
         this.imageOfficial = this.image2
       } else if (this.imageOfficial === this.image2){
@@ -168,7 +168,7 @@ class Slime {
     this.imageOfficial = this.image1
   }
   draw(){
-    if(frames % 10 === 0){
+    if(frames % 13 === 0){
       if(this.imageOfficial === this.image1){
         this.imageOfficial = this.image2
       } else if (this.imageOfficial === this.image2){
@@ -181,36 +181,6 @@ class Slime {
     }
     this.x -= this.velocity
     ctx.drawImage(this.imageOfficial, this.x, this.y, this.w, this.h)
-  }
-}
-
-class BlueSlime extends Slime{
-  constructor(arrImg,x,y,w,h,velocity){
-    super(arrImg,x,y,w,h,velocity)
-  }
-}
-
-class PinkSlime extends Slime{
-  constructor(arrImg,x,y,w,h,velocity){
-    super(arrImg,x,y,w,h,velocity)
-  }
-}
-
-class RedSlime extends Slime{
-  constructor(arrImg,x,y,w,h,velocity){
-    super(arrImg,x,y,w,h,velocity)
-  }
-}
-
-class PurpleSlime extends Slime{
-  constructor(arrImg,x,y,w,h,velocity){
-    super(arrImg,x,y,w,h,velocity)
-  }
-}
-
-class YellowSlime extends Slime{
-  constructor(arrImg,x,y,w,h,velocity){
-    super(arrImg,x,y,w,h,velocity)
   }
 }
 

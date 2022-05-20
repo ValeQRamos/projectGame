@@ -11,9 +11,9 @@ body {
 #theGame{
   background: #8e9eab;
   background: -webkit-linear-gradient(to right, #eef2f3, #798fa1, #617f97,); 
-  background: linear-gradient(to right, #eef2f3, #798fa1, #617f97 );  
+  background: linear-gradient(to right, #eef2f3, #798fa1, #617f97 ); 
+ 
 }
-
 canvas {
   border: 5px solid beige;
   background-color: rgb(65, 72, 74);
@@ -34,7 +34,7 @@ canvas {
 }
 
 #enter{
-  font-size: 27px;
+  font-size: 22px;
   font-family: 'Press Start 2P';
   font-weight: bolder;
   color: rgb(22, 29, 29);
@@ -44,14 +44,33 @@ canvas {
 
 span{
   color: rgb(226, 27, 54);
-  text-decoration: underline;
   text-shadow: 2px 2px black;
 }
 
-span:hover{
-  text-shadow: 3px 3px black;
+
+.enter{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#refresh{
+  border: none;
+  height: 35px;
+  margin-bottom: 20px;
+  font-family: 'Press Start 2p';
+  background-color: rgb(226, 27, 54);
+  color: beige;
+  cursor: pointer;
+  box-shadow: 4px -4px rgb(30, 36, 36);
+  border-radius: 4px;
+}
+
+#refresh:hover{
+  box-shadow: 6px -6px rgb(30, 36, 36);
   -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  transform: scale(1.1)
 }
 
 /* Styling buttons */
@@ -80,4 +99,19 @@ span:hover{
   box-shadow: 12px -12px rgb(30, 36, 36);
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+
+
+
+/* Web dev Info */
+
+.webDev{
+  font-family: 'Press Start 2p';
+  width: 100px;
+  height: 30px;
+  text-align: center;
+  position: fixed;
+  background-color: rgb(30, 36, 36);
+  bottom: 0;
+  right: 0;
 }

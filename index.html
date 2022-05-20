@@ -19,7 +19,10 @@
 
   <div class="container">
 
-    <p id="enter">PRESS <span>ENTER</span> TO START THE GAME</p>
+    <div class="enter">
+      <p id="enter">PRESS <span>ENTER</span> TO START THE GAME</p>
+      <button id="refresh" onClick="window.location.reload();">Restart</button>
+    </div>
 
     <canvas id="canvas1" width="800" height="550"></canvas>
 
@@ -28,9 +31,6 @@
       <button id="venom" class="btn">VENOM <br><br> +500% damage</button>
       <button id="ice" class="btn">ICE <br><br> +1000% damage</button>
     </div>
-
-  </div>
-
 
   <script src="js/defaultVars.js"></script>
   <script src="js/landingPage.js"></script>
