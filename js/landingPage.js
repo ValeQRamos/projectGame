@@ -1,10 +1,8 @@
 function landing(){
   ctx.drawImage(logo,10,10,300,100)
-
   ctx.drawImage(arrowBg,120,490,60,60)
   ctx.drawImage(arrowBg,370,490,60,60)
   ctx.drawImage(arrowBg,620,490,60,60)
-
 
   ctx.fillStyle = 'beige'
   ctx.font = '20px monospace'
@@ -52,7 +50,6 @@ function landing(){
   ctx.fillText('just be fast',265,390)
   ctx.fillText('- Also, do not let slimes go past you, stop them',251,185)
   ctx.fillText('by placing your character in their way.',270,210)
-
 }
 
 
@@ -95,4 +92,57 @@ function drawGameOver(){
   ctx.drawImage(loseFLame,240,434,150,150)
   ctx.drawImage(loseFLame,460,434,150,150)
   ctx.drawImage(loseFLame,600,434,150,150)
+}
+
+
+function statsInfo(){
+  ctx.fillStyle = 'rgb(30, 36, 36)'
+  ctx.fillRect(25,15,110,36)
+  ctx.drawImage(graySlime,12,9,65,35)
+
+  ctx.fillStyle = 'rgb(30, 38, 36)'
+  ctx.fillRect(660,15,125,36)
+  ctx.drawImage(greenSlime,660,18,23,23)
+
+  let acc = 0
+  if(bossHits > 0 || clicks > 0){
+    acc = (bossHits / clicks) * 100
+  }
+
+  let accurracy = Math.ceil(acc)
+  let accurracyColor;
+
+  if(accurracy > 75){
+    accurracyColor = 'lime'
+  } else if (accurracy > 50){
+    accurracyColor = 'yellow'
+  } else {
+    accurracyColor = 'orangered'
+  }
+
+  ctx.fillStyle = 'rgb(30, 36, 36)'
+  ctx.fillRect(60,canvas.height - 60,canvas.width - 120,50)
+  ctx.fillStyle = 'rgb(65, 72, 74)'
+  ctx.fillRect(65,canvas.height -55,220,40)
+  ctx.fillRect(290,canvas.height -55,220,40)
+  ctx.fillRect(515,canvas.height -55,220,40)
+  
+  ctx.fillStyle = 'beige'
+  ctx.font = '23px monospace'
+  ctx.fillText('TOTAL CLICKS:',74,canvas.height -28)
+  ctx.fillText('BOSS HITS:',315, canvas.height -28)
+  ctx.fillText('ACCURACY:',540, canvas.height -28)
+  ctx.font = '22px monospace'
+  ctx.fillText(`${clicks}`,242,canvas.height -28)
+  ctx.fillText(`${bossHits}`,445,canvas.height - 28)
+  ctx.fillStyle = accurracyColor
+  ctx.fillText(`${accurracy}%`, 655,canvas.height - 28)
+  
+  ctx.font = '25 monospace'
+  ctx.fillStyle = 'beige'
+  ctx.fillText(` X ${deadSlimes}`,60,40)
+
+  ctx.font ='14 monospace'
+  ctx.fillStyle = 'beige'
+  ctx.fillText('X2 speed',685,40)
 }

@@ -11,7 +11,6 @@ let specialHits = 0
 let bossHits = 0
 let deadSlimes = 0
 
-
 let requestId;
 
 const slimeArmy = []
@@ -26,12 +25,14 @@ let arrowStyle = regular
 
 
 //monster speed
-let regularSpeed = 0.03
+let regularSpeed = 0.05
 let monsterSpeed = regularSpeed
 
 
 // sounds 
 const battleMusic = new Audio('audio/battleLoop.mp3')
+const gameOverMusic = new Audio('audio/gameOver.mp3')
+const victoryMusic = new Audio('audio/victory.mp3')
 let gameSound = new Audio()
 regularSound = 'audio/arrow.wav'
 iceSound = 'audio/ice.wav'
@@ -41,7 +42,6 @@ gameSound.src = regularSound
 
 let stepSound = new Audio()
 stepSound.src = 'audio/snowStep.wav'
-
 
 
 //buttons style

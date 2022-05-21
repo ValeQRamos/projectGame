@@ -1,17 +1,13 @@
 
 window.onload = () => {
-  // landing page
   landing()
   
-  //game
   const bg = new Background('images/backgrounds/background.png')
   const snowBlur1 = new BgSnow('images/backgrounds/snow.png',0.4)
   const snowBlur2 = new BgSnow('images/backgrounds/snow8.png',0.2)
   const heroe = new Heroe(idle,15,170,100,130)
   const enemy = new Enemy(enemyWalk,canvas.height +40,100,250,250,monsterSpeed)
   
-  
-
   addEventListener('keydown',(event) =>{
     event.preventDefault()
     if(event.keyCode === 13){
@@ -25,10 +21,21 @@ window.onload = () => {
     requestId = requestAnimationFrame(updateGame)
   }
   
-
   function winGame(){
+    battleMusic.pause()
+    victoryMusic.play()
+    victoryMusic.volume = 0.2
     requestId = undefined
     dawWinning()  //from landingPage.js
+  }
+
+  function gameOver(){ 
+    battleMusic.pause()
+    gameOverMusic.play()
+    gameOver.volume = 0.2
+    ctx.clearRect(0,0,canvas.width,canvas.height)
+    drawGameOver()
+    requestId = undefined
   }
 
   function updateGame(){
@@ -45,13 +52,13 @@ window.onload = () => {
     generateArrows()
 
     snowBlur1.draw()
-    testingLife()
+    enemyLife()
     stats()
 
     if(requestId){requestAnimationFrame(updateGame)}
   }
 
-  function testingLife(){
+  function enemyLife(){
     let red = damage + extraDamage
 
     ctx.fillStyle = 'black'
@@ -88,7 +95,7 @@ window.onload = () => {
         arrows.splice(indexOfArrow,1)
       }else if(enemy.collision(arrow)){
         bossHits++
-        damage += 0.75
+        damage += 1.1
         arrows.splice(indexOfArrow,1)
       }
       arrow.draw()
@@ -117,64 +124,8 @@ window.onload = () => {
     }
   }
 
-  function gameOver(){ 
-    ctx.clearRect(0,0,canvas.width,canvas.height)
-    drawGameOver()
-    requestId = undefined
-    
-  }
-  
-
   function stats(){
-    ctx.fillStyle = 'rgb(30, 36, 36)'
-    ctx.fillRect(25,15,110,36)
-    ctx.drawImage(graySlime,12,9,65,35)
-
-    ctx.fillStyle = 'rgb(30, 38, 36)'
-    ctx.fillRect(660,15,125,36)
-    ctx.drawImage(greenSlime,660,18,23,23)
-
-    let acc = 0
-    if(bossHits > 0 || clicks > 0){
-      acc = (bossHits / clicks) * 100
-    }
-
-    let accurracy = Math.ceil(acc)
-    let accurracyColor;
-
-    if(accurracy > 75){
-      accurracyColor = 'lime'
-    } else if (accurracy > 50){
-      accurracyColor = 'yellow'
-    } else {
-      accurracyColor = 'orangered'
-    }
-
-    ctx.fillStyle = 'rgb(30, 36, 36)'
-    ctx.fillRect(60,canvas.height - 60,canvas.width - 120,50)
-    ctx.fillStyle = 'rgb(65, 72, 74)'
-    ctx.fillRect(65,canvas.height -55,220,40)
-    ctx.fillRect(290,canvas.height -55,220,40)
-    ctx.fillRect(515,canvas.height -55,220,40)
-    
-    ctx.fillStyle = 'beige'
-    ctx.font = '23px monospace'
-    ctx.fillText('TOTAL CLICKS:',74,canvas.height -28)
-    ctx.fillText('BOSS HITS:',315, canvas.height -28)
-    ctx.fillText('ACCURACY:',540, canvas.height -28)
-    ctx.font = '22px monospace'
-    ctx.fillText(`${clicks}`,242,canvas.height -28)
-    ctx.fillText(`${bossHits}`,445,canvas.height - 28)
-    ctx.fillStyle = accurracyColor
-    ctx.fillText(`${accurracy}%`, 655,canvas.height - 28)
-    
-    ctx.font = '25 monospace'
-    ctx.fillStyle = 'beige'
-    ctx.fillText(` X ${deadSlimes}`,60,40)
-
-    ctx.font ='14 monospace'
-    ctx.fillStyle = 'beige'
-    ctx.fillText('X2 speed',685,40)
+    statsInfo()
   }
  
   addEventListener('click', () => {
@@ -185,12 +136,11 @@ window.onload = () => {
    monsterSpeed = regular
   
   })
-  //forEach
 
   addEventListener('keydown',(event) =>{
     if(event.keyCode === 81){
       if(rockButton.style.backgroundColor === brown){
-        extraDamage += 1.5
+        extraDamage += 2.2
         arrowStyle = rockArrow
         specialHits++
         gameSound.src = rockSound
@@ -205,7 +155,7 @@ window.onload = () => {
     
     if(event.keyCode === 87){
       if(venomButton.style.backgroundColor === purple){
-        extraDamage += 3
+        extraDamage += 5.5
         arrowStyle = venomArrow
         specialHits++
         gameSound.src = venomSound
@@ -220,7 +170,7 @@ window.onload = () => {
     
     if(event.keyCode === 69){
       if(iceButton.style.backgroundColor === blue){
-        extraDamage += 7.5
+        extraDamage += 11
         arrowStyle = iceArrow
         specialHits++
         gameSound.src = iceSound
@@ -232,8 +182,6 @@ window.onload = () => {
         iceButton.style.backgroundColor = blue
       },'12000')
     }
-
-
   })
 
   document.getElementById('rock').onclick = () => {
@@ -281,7 +229,6 @@ window.onload = () => {
     },'12000')
   }
 
-  //heroe follow mouse on Y
   canvas.addEventListener('mousemove',mousePosition)
   function mousePosition(event){
     let rect = canvas.getBoundingClientRect()
@@ -289,12 +236,12 @@ window.onload = () => {
     heroe.y = event.clientY - rect.top - heroe.h / 2
   }
   
-  
-  
-
   addEventListener('keydown',event => {
     event.preventDefault()
     if(event.keyCode === 90){gameOver()} //z 2 veces
     if(event.keyCode === 88){winGame()}  //x 2 veces
   })
 };
+
+
+console.log();
