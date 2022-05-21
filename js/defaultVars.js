@@ -25,7 +25,7 @@ let arrowStyle = regular
 
 
 //monster speed
-let regularSpeed = 0.05
+let regularSpeed = 0.04
 let monsterSpeed = regularSpeed
 
 
